@@ -7,7 +7,7 @@ import Staff from './pages/Staff.jsx';
 import Services from './pages/Services.jsx';
 import Admin from './pages/Admin.jsx';
 import Booking from './pages/Booking.jsx';
-import './index.css';
+import './assets/css/index.css';
 import './assets/css/screen.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(

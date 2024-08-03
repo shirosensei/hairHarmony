@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
-import "./App.css";
+import "./assets/css/App.css";
 
 const App = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -15,7 +15,7 @@ const App = () => {
     <div>
       <header className="header">
         <div className="logo">
-          <h1>H&H</h1>
+          <h4>H&H</h4>
         </div>
         <nav className="navbar">
           <button className="nav-toggle" onClick={handleNavToggle}>
@@ -23,30 +23,30 @@ const App = () => {
           </button>
           <ul className={`nav-links ${isNavOpen ? "show" : ""}`}>
             <li>
-              <Link to="/" onClick={() => handleNavClose(false)}>
+              <Link to="/" className="link" onClick={() => handleNavClose(false)}>
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/services" onClick={() => handleNavClose(false)}>
+              <Link to="/services" className="link" onClick={() => handleNavClose(false)}>
                 Services
               </Link>
             </li>
             <li>
-              <Link to="/booking" onClick={() => handleNavClose(false)}>
+              <Link to="/booking" className="link" onClick={() => handleNavClose(false)}>
                 Book Now
               </Link>
             </li>
             <li>
-              <Link to="/staff" onClick={() => handleNavClose(false)}>
+              <Link to="/staff" className="link" onClick={() => handleNavClose(false)}>
                 About Us
               </Link>
             </li>
-            <li>
-              <Link to="/admin" onClick={() => handleNavClose(false)}>
+            {/* <li>
+              <Link to="/admin" className="link" onClick={() => handleNavClose(false)}>
                 Admin
               </Link>
-            </li>
+            </li> */}
           </ul>
         </nav>
       </header>

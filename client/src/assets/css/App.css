@@ -4,10 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* padding: 0.5em; */
-  padding: 10px 20px;
-  height: 3em;
-  /* width: 100%; */
+  padding: 10px;
 }
 
 .logo {
@@ -30,12 +27,12 @@
 .navbar a {
   text-decoration: none;
   color: white;
-  font-weight: bold;
+  font-weight: 400;
 }
 
 .nav-links a:hover {
-  background-color: #d4af37; /* Accent */
-  color: #333333; /* Dark Neutral */
+  border-bottom: 2px solid #d4af37; /* Accent */
+  color: #032b2c; /* Dark Neutral */
 }
 
 .nav-toggle {
@@ -48,15 +45,18 @@
 }
 
 .button {
-  background-color: #ff6f61;
-  color: white;
-  border: none;
-  padding: 10px 20px;
+  background-color: #fff;
+  color: #032b2c;
+  border: 1px solid #032b2c;
+  padding: 18px 30px;
+  line-height: 1.25em;
+  font-weight: 400;
   cursor: pointer;
 }
 
 .button:hover {
-  background-color: #d4af37; /* Accent */
+  color: #fff;
+  background-color: #032b2c; /* Accent */
 }
 
 .hero {
@@ -75,6 +75,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  font-size: 1rem;
 }
 
 .hero-button {
@@ -88,11 +89,42 @@
 .services,
 .about,
 .testimonials,
+.staff,
 .contact-info {
   padding: 20px;
   text-align: center;
+  font-weight: 300;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+.about {
+  background-color: #032b2c;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 300;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.about-text {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.about-text > button {
+  border: 2px solid #d4af37;
+  margin-top: 10px;
+}
+
+.about-text button:hover {
+  border: 1px solid #d4af37;
+  background-color: #d4af37; /* Accent */
+}
+
+.services {
+  background-color: #d4af37;
+  border-radius: 10px;
+  padding: 20px;
+}
 .services-list {
   display: flex;
   flex-wrap: wrap;
@@ -111,5 +143,6 @@
 
 picture {
   position: relative;
-  /* z-index: 1; */
 }
+
+
