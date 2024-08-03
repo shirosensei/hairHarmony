@@ -1,0 +1,57 @@
+/* Responsive styles */
+@media (max-width: 768px) {
+  .nav-links {
+    visibility: hidden;
+    flex-direction: column;
+    position: absolute;
+    top: 52px;
+    /* right: 900%; */
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 150px;
+    padding: 10px;
+    cursor: pointer;
+    transform: translateX(-500%);
+    transition: transform 1s ease-out, visibility 1s;
+  }
+
+  .nav-links.show {
+    display: flex; /* Show the nav links when 'show' class is added */
+    transform: translateX(-120px);
+    transition: transform 1s ease-out, visibility 1s;
+    visibility: visible;
+  }
+
+  .nav-toggle {
+    visibility: visible;
+  }
+}
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+  /* Your CSS for extra small devices */
+}
+
+/* Small devices (phones, 576px and up) */
+@media (min-width: 576px) {
+  /* Your CSS for small devices */
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  /* Your CSS for medium devices */
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  /* Your CSS for large devices */
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  /* Your CSS for extra large devices */
+}
+
+/* Extra extra large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+  /* Your CSS for extra extra large devices */
+}

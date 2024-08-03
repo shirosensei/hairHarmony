@@ -1,0 +1,115 @@
+.header {
+  background-color: #6a0572;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 0.5em; */
+  padding: 10px 20px;
+  height: 3em;
+  /* width: 100%; */
+}
+
+.logo {
+  color: #ffc1cc;
+}
+
+.navbar {
+  position: relative;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  z-index: 2;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  background-color: #d4af37; /* Accent */
+  color: #333333; /* Dark Neutral */
+}
+
+.nav-toggle {
+  visibility: hidden;
+  background-color: #333;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.button {
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #d4af37; /* Accent */
+}
+
+.hero {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hero-button {
+  background-color: #ff6f61;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.services,
+.about,
+.testimonials,
+.contact-info {
+  padding: 20px;
+  text-align: center;
+}
+
+.services-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.service-item {
+  margin: 10px;
+  text-align: center;
+}
+
+.service-image {
+  max-width: 100%;
+  height: auto;
+}
+
+picture {
+  position: relative;
+  /* z-index: 1; */
+}
