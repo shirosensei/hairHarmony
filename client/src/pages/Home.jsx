@@ -35,7 +35,9 @@ const Home = () => {
               committed to providing you with the best possible haircut and
               styling experience.
             </p>
-            <button className="button" id="about-border">Learn More</button>
+            <button className="button" id="about-border">
+              Learn More
+            </button>
           </div>
           <div className="about-image">
             <img src="path/to/salon-image.jpg" alt="Salon" />
@@ -178,7 +180,6 @@ const Home = () => {
             <img src="path/to/opening-hours-icon.png" alt="Opening Hours" />
             <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
           </div>
-        
         </section>
       </main>
       <footer className="footer">
