@@ -1,28 +1,33 @@
+
 .header {
-  background-color: var(--color-purple);
+  background-color: var(--color-dark-teal);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: var(--space-2xs);
+  margin-inline-end: auto;
 }
 
 .logo {
-  color: #032b2c;
+  color: var(--color-light-grey);
+  padding: 0 var(--space-xs);
 }
 
 .navbar {
   position: relative;
   display: inline-flex;
+  padding: 0 var(--space-2xs);
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: var(--space-m);
   margin: 0;
   padding: 0;
   z-index: 2;
 }
+
 
 .navbar a {
   text-decoration: none;
@@ -37,17 +42,29 @@
 
 .nav-toggle {
   visibility: hidden;
-  background-color: #f5f5f5;
-  border: none;
-  color: #032b2c;
-  font-size: 24px;
+  background-color: var(--color-dark-teal);
+  border: 0.1rem solid var(--color-dark-teal);
+  color: var(--color-light-grey);
+  font-size: var(--font-1);
   cursor: pointer;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+
+.nav-toggle:hover {
+  border-color: var(--color-darker-grey);
+  box-shadow: 0 0 0.0625rem 0.0625rem var(--color-darker-grey);
+}
+
+.nav-toggle:focus {
+  outline: none;
+  box-shadow: 0 0 0.0625rem 0.0625rem var(--color-darker-grey);
 }
 
 .button {
   background-color: #fff;
-  color: #032b2c;
-  border: 1px solid #032b2c;
+  color: var(--color-dark-teal);
+  border: var(--) solid var(--color-dark-teal);
   padding: 18px 30px;
   line-height: 1.25em;
   font-weight: 400;
@@ -75,7 +92,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 1rem;
 }
 
 .hero-button {
@@ -106,7 +122,6 @@
 }
 
 .about-text {
-  font-size: 1.2rem;
   margin-bottom: 20px;
 }
 
@@ -122,9 +137,10 @@
 
 .services {
   background-color: #d4af37;
-  border-radius: 10px;
+
   padding: 20px;
 }
+
 .services-list {
   display: flex;
   flex-wrap: wrap;
