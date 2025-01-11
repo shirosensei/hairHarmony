@@ -7,6 +7,7 @@ import Staff from './pages/Staff.jsx';
 import Services from './pages/Services.jsx';
 import Admin from './pages/Admin.jsx';
 import Booking from './pages/Booking.jsx';
+import Footer from './pages/Footer.jsx';
 import './assets/css/index.css';
 import './assets/css/screen.css';
 
@@ -23,6 +24,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="admin" element={<Admin />} />
       </Route>
     </Routes>
+    <Footer />
   </Router>
   
   </StrictMode>
