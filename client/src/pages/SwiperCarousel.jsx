@@ -2,7 +2,8 @@ import React, { useRef } from "react";
 import Logo from "../assets/images/client-doing-hair-cut-barber-shop-salon1.jpg";
 import image2 from "../assets/images/massage-therapy-1584711_640.jpg";
 import image3 from "../assets/images/barbershop-1612726_640.jpg";
-
+import image4 from "../assets/images/machine-8254053_640.jpg";
+import image5 from "../assets/images/barber-shop-7021798_1280.jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
 // import Swiper from 'swiper';
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
@@ -28,6 +29,17 @@ const images = [
     src: `${image3}`,
     alt: "Relaxing spa area",
   },
+  {
+    id: 4,
+    src: `${image4}`,
+    alt: "Machine cutter"
+  },
+  {
+    id: 5,
+    src: `${image5}`,
+    alt: "Barber and client "
+  }
+
 ];
 
 const SwiperCarousel = () => {
