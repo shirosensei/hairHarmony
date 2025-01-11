@@ -1,6 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
 :root {
+  --fluid-16-48: clamp(1rem, 0.3043rem + 3.4783vw, 3rem);
+
   --font--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
   --font--1: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
   --font-0: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
@@ -36,6 +42,7 @@
   --color-gold: #d4af37;
   --color-dark-gold: #b98f2b;
   --color-light-gold: #e4c36e;
+  --color-light-yellow: #ffe593;
 
   --color-purple: #6a0572;
   --color-dark-purple: #500457;
@@ -44,26 +51,85 @@
   --color-dark-teal: #032b2c;
   --color-darker-teal: #021f20;
 
-  --color-dark-teal-hex: 3, 43, 44; /* #032b2c */
-  --color-dark-blue: 2, 31, 32; /* #021f20 */
-
   --color-light-grey: #f5f5f5;
   --color-darker-grey: #e0e0e0;
   --color-lighter-grey: #ffffff;
 
+  --tw-bg-opacity: 1;
 
-  font-size: var(--font-0);
-  line-height: 1.5;
-  font-weight: 300;
-  background-color: var(--color-light-grey);
-  color: var(--color-dark-teal);
+  --color-black: #080808;
+
+  background-color: var(--color-black);
+  color: var(--color-light-yellow);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+:root {
+  --grid-max-width: 77.50rem;
+  --grid-gutter: var(--space-m, clamp(1.125rem, 0.6467rem + 2.3913vw, 2.5rem));
+  --grid-columns: 12;
+  --grid-columns-mobile: 1fr; /* 1 column on mobile */
+  --grid-columns-tablet: repeat(3, 1fr);
+
+}
+
+:root {
+  --button-border-color: var(--color-light-grey);
+  --button-hover-border-color: var(--color-light-yellow);
+  --button-text-color: var(--color-light-yellow);
+  --button-hover-bg-color: var(--color-black);
+  --button-border-width: 2px; /* Default border width */
+}
+
+.u-container {
+  max-width: var(--grid-max-width);
+  padding-inline: var(--grid-gutter);
+  margin-inline: auto;
+}
+
+.u-grid {
+  display: grid;
+  gap: var(--grid-gutter);
+  grid-template-columns: var(--grid-columns-mobile);
+  /* grid-auto-rows: minmax(100%, auto);  */
+}
+
+.u-grid-item {
+  flex-grow: 1;
+}
+
+@media (min-width: 768px) {
+
+  .logo-container {
+    /* padding-block-start: 20px; */
+    padding-inline-start: var(--space-l);
+  }
+
+  .navbar {
+    padding-inline-end: var(--space-l);
+  }
+
+  .u-grid {
+    /* grid-template-columns: repeat(3, 1fr); */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+  }
+
+  .hero-text h1 {
+    white-space: nowrap; /* Prevents text wrapping */
+   }
+  
+}
+
+
+
+
 body {
   margin: 0;
   padding: 0;
+  font-size: var(--font-0);
+  line-height: 1.5;
+  letter-spacing: 0.1em;
 }
 
 *,
@@ -81,14 +147,18 @@ h1 {
 
 h2 {
   font-size: var(--font-3);
+  margin-bottom: var(--space-s-m);
 }
 
 h3 {
   font-size: var(--font-2);
+  margin-bottom: var(--space-s-m);
 }
 
 h4 {
   font-size: var(--font-1);
+  margin-bottom: var(--space-xs-s);
+  color: var(--color-gold);
 }
 
 h5 {
@@ -101,9 +171,24 @@ h6 {
 
 button {
   padding: var(--space-2xs);
+  font-size: var(--font-0);
 }
 
- html,
+p {
+  margin-bottom: var(--space-s-m);
+  text-align: left;
+  font-family:  "Lora", serif;
+  font-style: normal;
+  font-weight: 100;
+  text-transform: none;
+  letter-spacing: 1.5px;
+}
+h1, h2, h3, h4 {
+  text-transform: uppercase;
+  /* width: var(--space-m-l); */
+}
+/* 
+html,
 body,
 div,
 span,
@@ -188,7 +273,7 @@ video {
   padding: 0;
   border: 0;
   vertical-align: baseline;
-} 
+} */
 
 /* HTML5 display-role reset for older browsers */
 article,
