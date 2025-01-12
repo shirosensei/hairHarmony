@@ -90,9 +90,9 @@ const Navbar = () => {
           {/* )} */}
         </nav>
       </header>
-      <main>
+      <div>
         <Outlet />
-      </main>
+      </div>
     </React.Fragment>
   );
 };
