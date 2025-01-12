@@ -137,11 +137,11 @@
 }
 
 .container {
-  width: clamp(20rem, 90vw, 77.5rem);
+  /* width: clamp(20rem, 90vw, 77.5rem); */
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
-  /* width: 100%; */
+  width: 100%;
 }
 
 .hero-button {
@@ -149,6 +149,7 @@
   color: var(--color-light-yellow);
   transition: color 0.25s ease 0.083s, transform 0.5s ease-in-out;
   position: relative;
+  width: calc(100% - 50%);
   font-weight: 700;
   font-size: var(--font-2);
   line-height: 1.5;
@@ -214,7 +215,7 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  padding: var(--space-m);
+  padding: var(--space-m) 0;
   min-height: clamp(50vh, 90vh, 100vh);
   overflow: hidden;
   position: relative;
@@ -227,13 +228,7 @@
   left: 0;
   width: 100%;
   min-height: 100%;
-  /* background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.9),
-    rgba(0, 0, 0, 0.7)
-  ); */
-  background: var(--color-black) url() no-repeat;
-
+  background-color: var(--color-black);
   z-index: 1;
   overflow: hidden;
 }
@@ -251,7 +246,7 @@
 }
 
 .hero-text {
-  width: clamp(40ch, 50%, 60ch);
+  /* width: clamp(40ch, 100%, 60ch); */
   text-align: center;
   margin: 0 auto;
   line-height: 1.6;
@@ -342,6 +337,8 @@
 
 .services-section {
   padding-block: var(--grid-gutter);
+  background: var(--color-black) url(../images/sea-background.jpg) center no-repeat;
+  background-size: cover;
 } 
 
 .service-card {
@@ -349,8 +346,8 @@
   flex-direction: column;
   padding: var(--grid-gutter);
   height: 100%;
-  background: rgb(8,8,8);
-  background: linear-gradient(45deg, rgba(8,8,8,1) 35%, rgba(8,8,8,1) 100%);
+  background-color: var(--color-black);
+  /* background: linear-gradient(45deg, rgba(8,8,8,1) 35%, rgba(8,8,8,1) 100%); */
   color: var(--color-light-grey);
   border-radius: var(--space-2xs);
   transition: transform 0.3s ease;
@@ -402,15 +399,15 @@
 
 section,
 aside {
-  margin: 0 0 var(--space-xs-s) 0;
+  padding: 0 0 var(--space-m-l) 0;
 }
 
 picture {
   position: relative;
 }
 
-footer {
-  background-color: var(--color-dark-teal);
+.footer__section {
+  background-color: var(--color-black);
   color: var(--color-light-grey);
   padding: 20px;
   text-align: center;
