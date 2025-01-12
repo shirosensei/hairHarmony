@@ -59,10 +59,13 @@
 
   --color-black: #080808;
 
-  background-color: var(--color-black);
+  /* background-color: var(--color-black); */
   color: var(--color-light-yellow);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: var(--font--2);
+  --swiper-navigation-color: var(--color-lighter-grey);
+  --swiper-pagination-color:  var(--color-lighter-grey);
 }
 
 :root {
@@ -102,12 +105,11 @@
 @media (min-width: 768px) {
 
   .logo-container {
-    /* padding-block-start: 20px; */
-    padding-inline-start: var(--space-l);
+    padding: 2px;
   }
 
   .navbar {
-    padding-inline-end: var(--space-l);
+    padding-inline-end: var(--space-s);
   }
 
   .u-grid {
@@ -115,10 +117,9 @@
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
   }
 
-  .hero-text h1 {
-    white-space: nowrap; /* Prevents text wrapping */
-   }
-  
+  .hero-text {
+    /* width: clamp(40ch, 1000%, 60ch); */
+  }
 }
 
 
@@ -176,12 +177,14 @@ button {
 
 p {
   margin-bottom: var(--space-s-m);
-  text-align: left;
+  text-align: center;
   font-family:  "Lora", serif;
   font-style: normal;
   font-weight: 100;
   text-transform: none;
   letter-spacing: 1.5px;
+  font-size: var(--font-1);
+  line-height: 1.6;
 }
 h1, h2, h3, h4 {
   text-transform: uppercase;
