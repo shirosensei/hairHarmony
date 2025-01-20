@@ -57,14 +57,17 @@ const Home = () => {
       <main>
         <section className="hero">
           <div className="container">
-            <Suspense
-              fallback={<p>loading...</p>}
-            >
+            <Suspense fallback={<p>loading...</p>}>
               <SwiperCarousel />
             </Suspense>
             <div className="hero-text">
               <h1>Welcome to Our Salon</h1>
-              <p>We provide full experience luxury and relaxation. we are proud to say that we have been a staple in the community for over 50 year</p>
+              <p className="hero-description">
+                We provide full experience luxury and relaxation. we are proud
+                to say that we have been a staple in the community for over 50
+                year
+              </p>
+
               <button className="hero-button">Book Now</button>
             </div>
           </div>
@@ -73,27 +76,32 @@ const Home = () => {
         <section className="services-section services">
           <div className="u-container">
             <h2>Our Services</h2>
-            <div
-              className="u-grid">
+            <div className="u-grid">
               {services.map((service, index) => (
-                <div key={index} className="service-card">
-                  <div className="service-image service-item">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="service-title"
-                    />
-                  </div>
-
+                <>
                   <div className="u-grid-item">
-                    <h4>{service.title}</h4>
-                    <p>{service.description}</p>
-                  </div>
+                    <div key={index} className="service-card">
+                      <div className="service-image service-item">
+                        <img
+                          src={service.image}
+                          alt={service.title}
+                          className="service-title"
+                        />
+                      </div>
 
-                  <div className="service-button-container">
-                    <button className="service-button">View All Services</button>
+                      <div className="service-details">
+                        <h4>{service.title}</h4>
+                        <p>{service.description}</p>
+                      </div>
+
+                      <div className="service-button-container">
+                        <button className="service-button">
+                          View All Services
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </>
               ))}
             </div>
           </div>
