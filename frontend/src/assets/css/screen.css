@@ -1,13 +1,12 @@
 /* Responsive styles */
 @media (max-width: 768px) {
   .nav-toggle-close {
-    visibility: hidden; /* Start hidden */
+    visibility: hidden;
     opacity: 0;
     position: absolute;
     top: var(--font-0);
     right: var(--font-0);
-    width: var(--space-s);
-    /* font-size: var(--font-3); */
+    width: var(--space-m);
     height: 2rem;
     background-color: initial;
     border: none;
@@ -45,11 +44,13 @@
 
   .nav-toggle {
     visibility: visible;
+    font-size: var(--font-4);
   }
 
   .nav-toggle-close.active {
     visibility: visible;
     opacity: 1;
+    font-size: var(--font-4);
     transform: translate(0);
     transition: transform 0.5s ease-in-out, visibility 0s,
       opacity 0.5s ease-in-out;
@@ -59,18 +60,90 @@
     padding-bottom: var(--space-s);
   } */
 
+  .hero {
+    padding: var(--space-s) 0;
+  }
 
   .logo-container {
     padding-inline-start: 0.2rem;
     padding-block-start: 0.2rem;
   }
+
   .logo-container img {
     max-width: 100%;
     max-height: 50px;
     filter: blur(0.2);
   }
 
+  .hero-text {
+    width: clamp(40ch, 80%, 60ch);
+    word-wrap: break-word;
+  }
 
-
+  .hero-button {
+    width: calc(100% - 20%);
+  }
 }
 
+
+/* Desktop  */
+@media (min-width: 768px) {
+  .logo-container {
+    padding: 2px;
+  }
+
+  .navbar {
+    padding-inline-end: var(--space-s);
+  }
+
+  .u-grid {
+    /* grid-template-columns: repeat(3, 1fr); */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  }
+
+  .hero-text {
+    width: clamp(40ch, 1000%, 60ch);
+  }
+
+  .footer {
+    grid-template-areas:
+      "logo button socials"
+      "address contacts contacts"
+      "line line line"
+      "copyright copyright copyright";
+    /* grid-template-columns: repeat(auto-fit, minmax(6vw, 8fr)); */
+  }
+
+  .footer__container__logo {
+    grid-area: -7 / -13 / 18 / 4;
+    /* grid-column: 1; */
+    margin: 0 auto;
+  }
+
+  .container__button {
+    grid-area: 3 / 5 / 9 / -6;
+  }
+
+  .container__socials {
+    grid-area: 12/6/9/7;
+    width: max-content;
+  }
+
+  .container__address {
+    grid-area: 10/9/3/14;
+  }
+
+  .container__contacts {
+    width: fit-content;
+    grid-area: 2;
+  }
+
+  .container__line {
+    grid-area: 12 / -9 / 14/ 16;
+  }
+
+  .container_paragraph {
+    grid-area: 15/2/17/13;
+    margin: 0 auto;
+  }
+}
