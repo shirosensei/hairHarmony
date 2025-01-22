@@ -6,12 +6,13 @@ const Footer = () => {
     <div className="footer__section">
       <footer className="footer">
         <div className="footer__container__logo">
-          <img
+          {/* <img
             src=""
             alt="image Logo"
-            width="100"
+            width="100%"
+            height="100%"
             className="container__image"
-          />
+          /> */}
         </div>
 
         <div className="container__button">
@@ -44,17 +45,17 @@ const Footer = () => {
           <p className="address">
             1092 Newsoro Blvd Suite K, New England, LA, 20021
           </p>
-        </div>
-
-        <div className="container__contacts">
+          <div className="container__contacts">
           <small>
             <a href="mailto:hairharmony@gmail.com">hairharmony@gmail.com</a>
-          </small>
-          | <a href="tel:+9028322336">(902) 832- 2336</a>
+          </small> &nbsp;| <a href="tel:+9028322336">(902) 832- 2336</a>
+        </div>
         </div>
 
-        <p className="container__line"></p>
-        <p>&copy; 2019 - 2024. All rights reserved - H&H Salon.</p>
+      
+
+        <hr className="container__line"></hr>
+        <p className="container_paragraph">&copy; 2019 - 2024. All rights reserved - H&H Salon.</p>
       </footer>
     </div>
   );
