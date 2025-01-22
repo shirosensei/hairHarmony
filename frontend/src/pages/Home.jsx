@@ -13,7 +13,7 @@ const Home = () => {
     {
       title: "Hair Services",
       description:
-        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat nesciunt ea porro, adipisci eos doloribus accusantium sint error. Voluptates maxime alias nulla, modi porro cum qui consectetur amet aspernatur rerum!",
+        "Discover precision cuts that enhance your individuality and textured cuts that redefine your style narrative. Immerse yourself in the world of custom color variations, where our bold and confident stylists craft a palette that complements your personality seamlessly. Experience the transformative power of smoothing treatments that leave your hair luxuriously sleek and vibrant.",
       price: "From $45",
       image: `${haircutImage}`,
     },
@@ -32,14 +32,13 @@ const Home = () => {
     {
       title: "Nail Services",
       description:
-        "                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos at ullam tenetur iusto minus consequuntur. Suscipit laboriosam accusamus asperiores quia, dolorem distinctio odio officia error, doloremque, sit obcaecati libero sed!",
+        "Elevate your style with our bold and modern nail services at The Clip Joint. Crafted for trendsetting, our nail treatments are designed to complement your unique personality. From fashion-forward nail art to timeless classics, our conscious and cutting-edge nail technicians deliver a pampering experience that resonates with the modern and confident spirit of our diverse clientele. Trust us for quality and relaxation, where your nails become a canvas for self-expression.",
       price: "From $20",
       image: `${pedicureImage1}`,
     },
     {
       title: "SPA/sKIN Services",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint esse fugit cumque laboriosam minima repellat quis id rerum, laudantium iusto quisquam repudiandae architecto beatae omnis vero tempora? Corrupti, in illum!",
+      description: "Discover conscious skincare with our industry-leading esthetician, Kelly Krivesti. Our diverse clientele of trendy adults seeks the perfect balance of modern skincare solutions in a relaxing atmosphere. Our approach to facial treatments goes beyond the ordinary, promoting not just beauty but a sense of well-being. Unveil your radiant skin with confidence, as our relatable estheticians provide quality services that align with our brand's commitment to self-care. This is where modern meets timeless, and beauty is an art form.",
       price: "From $75",
       image: `${massageImage}`,
     },
