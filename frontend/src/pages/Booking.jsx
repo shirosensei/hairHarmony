@@ -48,17 +48,47 @@ const Booking = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [service, setService] = useState("");
   const [stylist, setStylist] = useState("");
   const [date, setDate] = useState(new Date());
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted");
+
+    const response = await fetch("http://localhost:8100/api/appointments/book", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        phone,
+        service,
+        stylist,
+        date,
+      }),
+    });
+
+      if (response.ok) {
+        alert("Booking successful!");
+      } else {
+        alert("Error booking appointment.");
+      }
+
     // Make API call to book appointment
   };
+
   return (
-    <div>
+    <div className="container"> 
+    <section className="booking">
+        <h1>Book an Appointment</h1>
+        <p>
+          Book an appointment with our professional stylists and get the look you
+          desire. Our stylists are experienced in providing a range of services
+          including haircuts, hair coloring, beard trims, and more.</p>
+  
       <h2>Book an Appointment</h2>
       {/* Appointment form */}
       <form onSubmit={handleSubmit}>
@@ -124,6 +154,7 @@ const Booking = () => {
         </select>
         <button type="submit" className="button">Book Now</button>
       </form>
+      </section>
     </div>
   );
 };
