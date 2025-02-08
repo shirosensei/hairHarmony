@@ -1,60 +1,48 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../assets/images/client-doing-hair-cut-barber-shop-salon.jpg";
 const Services = () => {
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const getServices = async () => {
+      try {
+        const response = await fetch("http://localhost:8100/api/services");
+        const data = await response.json();
+        setServices(data);
+        setLoading(false);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    getServices();
+
+  }, []);
+
+
   return (
     <React.Fragment>
-      
-
       <section className="services">
         <h2>Our Services</h2>
+
         <div className="service-items">
           <div className="service-item">
-            <img src="path/to/haircut-icon.png" alt="Haircuts" />
-            <p>Haircuts</p>
-          </div>
-          <div className="service-item">
-            <img src="path/to/spa-icon.png" alt="Spa" />
-            <p>Spa Treatments</p>
-          </div>
-          <div className="service-item">
-            <img src="path/to/facial-icon.png" alt="Facials" />
-            <p>Facials</p>
-          </div>
-          <div className="service-item">
-            <img src="path/to/massage-icon.png" alt="Massages" />
-            <p>Massages</p>
-          </div>
-          <div className="service-item">
-            <img src="path/to/color-icon.png" alt="Coloring" />
-            <p>Coloring</p>
-          </div>
-          <div className="service-item">
-            <img src="path/to/manicure-icon.png" alt="Manicures" />
-            <p>Manicures</p>
-          </div>
-          <div className="service-item">
-            <img src="path/to/pedicure-icon.png" alt="Pedicures" />
-            <p>Pedicures</p>
-          </div>
-          <div className="service-item">
-            <img src="path/to/nails-icon.png" alt="Nails" />
-            <p>Nails</p>
-          </div>
-          <div className="service-item">
-            <img src="path/to/makeup-icon.png" alt="Makeup" />
-            <p>Makeup</p>
-          </div>
-          <div className="service-item">
-            <img src="path/to/hair-care-icon.png" alt="Hair Care" />
-            <p>Hair Care</p>
-          </div>
-          <div className="service-item">
-            <img src="path/to/grooming-icon.png" alt="Grooming" />
-            <p>Grooming</p>
-          </div>
-          <div className="service-item">
-            <img src="path/to/hair-extensions-icon.png" alt="Hair Extensions" />
-            <p>Hair Extensions</p>
+            {loading && <p>Loading services...</p> ? (
+              <img src={Logo} alt="Loading services..." />
+            ) : (
+              <p>No services found.</p>
+            )}
+
+            {services.map((service) => (
+              <div key={service._id} className="service-item">
+                <img src={service.icon} alt={service.name} />
+                <p>{service.name}</p>
+                <p>{service.duration}</p>
+                <p>${service.price}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
