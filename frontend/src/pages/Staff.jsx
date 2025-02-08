@@ -1,38 +1,46 @@
-// import React from 'react'
+import React, { useState, useEffect, useLayoutEffect } from "react";
+import { useFormAction } from "react-router-dom";
 
 const Staff = () => {
+  const [staff, setStaff] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const getStaff = async () => {
+      try {
+        const response = await fetch("http://localhost:8100/api/stylists");
+        const data = await response.json();
+        setStaff(data);
+        setLoading(false);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    getStaff();
+  }, []);
+
   return (
     <div>
-              <section className="staff">
-          <h2>Our Staff</h2>
-          <div className="staff-items">
-            <div className="staff-item">
-              <img src="path/to/staff-image1.jpg" alt="Staff Member" />
-              <h3>Name</h3>
-              <p>Position</p>
-            </div>
-            <div className="staff-item">
-              <img src="path/to/staff-image2.jpg" alt="Staff Member" />
-              <h3>Name</h3>
-              <p>Position</p>
-            </div>
-            <div className="staff-item">
-              <img src="path/to/staff-image3.jpg" alt="Staff Member" />
-              <h3>Name</h3>
-              <p>Position</p>
-            </div>
-            <div className="staff-item">
-              <img src="path/to/staff-image4" alt="Staff Member" />
-            </div>
-            <div className="staff-item">
-              <img src="path/to/staff-image5.jpg" alt="Staff Member" />
-              <h3>Name</h3>
-              <p>Position</p>
-            </div>
+      <section className="staff">
+        <h2>Our Staff</h2>
+        <div className="staff-items">
+          <div className="staff-item">
+            {loading && <p>Loading staff...</p>}
+            {staff.map((staff) => (
+              <div key={staff._id} className="staff-item">
+                <img src={staff.image} alt={staff.name} />
+                <h3>{staff.name}</h3>
+                <p>{staff.experience}</p>
+                <p>{staff.speciality}</p>
+              </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
     </div>
-  )
-}
+  );
+};
 
-export default Staff
+export default Staff;
