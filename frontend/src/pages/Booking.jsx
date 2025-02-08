@@ -53,107 +53,161 @@ const Booking = () => {
   const [stylist, setStylist] = useState("");
   const [date, setDate] = useState(new Date());
 
+  //! This is the same as the handleChange function below
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    switch (name) {
+      case "name":
+        setName(value);
+        break;
+      case "email":
+        setEmail(value);
+        break;
+      case "phone":
+        setPhone(value);
+        break;
+      case "service":
+        setService(value);
+        break;
+      case "stylist":
+        setStylist(value);
+        break;
+      default:
+        break;
+    }
+  };
+
+  //* Function to handle date picker
+  const handleDateChange = (date) => {
+    setDate(date);
+  };
+
+  //? Function that handle submit button
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:8100/api/appointments/book", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name,
-        email,
-        phone,
-        service,
-        stylist,
-        date,
-      }),
-    });
+    try {
+      const response = await fetch(
+        "http://localhost:8100/api/appointments/book",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            phone,
+            service,
+            stylist,
+            date: date.toISOString(),
+            time: new Date().toLocaleTimeString(),
+          }),
+        }
+      );
 
       if (response.ok) {
-        alert("Booking successful!");
+        // console.error("Error booking appointment.", response.text());
+        alert("Appointment booked appointment.");
       } else {
         alert("Error booking appointment.");
       }
+    } catch (error) {
+      console.error("Error booking appointment.", error);
+    }
 
     // Make API call to book appointment
   };
 
   return (
-    <div className="container"> 
-    <section className="booking">
+    <div className="container">
+      <section className="booking">
         <h1>Book an Appointment</h1>
         <p>
-          Book an appointment with our professional stylists and get the look you
-          desire. Our stylists are experienced in providing a range of services
-          including haircuts, hair coloring, beard trims, and more.</p>
-  
-      <h2>Book an Appointment</h2>
-      {/* Appointment form */}
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name: </label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
+          Book an appointment with our professional stylists and get the look
+          you desire. Our stylists are experienced in providing a range of
+          services including haircuts, hair coloring, beard trims, and more.
+        </p>
 
-        <label htmlFor="email">Email Address: </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+        {/* <h2>Book an Appointment</h2> */}
+        {/* Appointment form */}
+        <div className="cards">
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="name">Name: </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={name}
+              onChange={handleChange}
+              required
+            />
 
-        {/* Calendar component goes here */}
-        <label htmlFor="date">Date: </label>
-        <Calendar value={date} onChange={setDate} required />
-        <p>Selected Date: {date.toLocaleDateString()}</p>
+            <label htmlFor="email">Email Address: </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={email}
+              onChange={handleChange}
+              required
+            />
 
-        <label htmlFor="service">Service: </label>
-        <select
-          id="service"
-          name="service"
-          value={service}
-          onChange={(e) => setService(e.target.value)}
-          required
-        >
-          <option value="" disabled>
-            Select a Service
-          </option>
-          {services.map((service, index) => (
-            <option key={index} value={service}>
-              {service}
-            </option>
-          ))}
-        </select>
+            <label htmlFor="phoneNumber" className="booking-card"></label>
+            <input
+              type="text"
+              id="phoneNumber"
+              name="phone"
+              value={phone}
+              // onChange={(e) => console.log(setPhone(e.target.value))}
+              onChange={handleChange}
+            />
 
-        <label htmlFor="stylist">Stylist: </label>
-        <select
-          id="stylist"
-          name="stylist"
-          value={stylist}
-          onChange={(e) => setStylist(e.target.value)}
-          required
-        >
-          <option value="" disabled>
-            Select a Stylist (optional)
-          </option>
-          {stylists.map((stylist, index) => (
-            <option key={index} value={stylist}>
-              {stylist}
-            </option>
-          ))}
-        </select>
-        <button type="submit" className="button">Book Now</button>
-      </form>
+            {/* Calendar component goes here */}
+            <label htmlFor="date">Date: </label>
+            <Calendar value={date} onChange={handleDateChange} required />
+            <p>Selected Date: {date.toLocaleDateString()}</p>
+
+            <label htmlFor="service">Service: </label>
+            <select
+              id="service"
+              name="service"
+              value={service}
+              onChange={handleChange}
+              required
+            >
+              <option value="" disabled>
+                Select a Service
+              </option>
+              {services.map((service, index) => (
+                <option key={index} value={service}>
+                  {service}
+                </option>
+              ))}
+            </select>
+
+            <label htmlFor="stylist">Stylist: </label>
+            <select
+              id="stylist"
+              name="stylist"
+              value={stylist}
+              onChange={(e) => setStylist(e.target.value)}
+              required
+            >
+              <option value="" disabled>
+                Select a Stylist (optional)
+              </option>
+              {stylists.map((stylist, index) => (
+                <option key={index} value={stylist}>
+                  {stylist}
+                </option>
+              ))}
+            </select>
+            <button type="submit" className="button">
+              Book Now
+            </button>
+          </form>
+        </div>
       </section>
     </div>
   );
