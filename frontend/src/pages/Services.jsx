@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Scissors, Sparkles, Heart, Palette, Star } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 import "../assets/css/services.css";
 
 import Logo from "../assets/images/client-doing-hair-cut-barber-shop-salon.jpg";
 const Services = () => {
+  const navigate = useNavigate();
+
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const handleBookNow = () => {
+    navigate("/booking");
+  };
 
   // useEffect(() => {
   //   const getServices = async () => {
@@ -107,17 +114,6 @@ const Services = () => {
   return (
     <React.Fragment>
       <section className="services-section container" id="services">
-        {/* Hero Section */}
-
-        {/* <div className="hero-container">
-          <div className="hero-overlay">
-            <div className="hero-content">
-              <div className="hero-title">Hair Harmony Salon</div>
-              <p className="hero-subtitle">Where Beauty Meets Excellence</p>
-            </div>
-          </div>
-        </div> */}
-
         {/* Services Section */}
         <div className="services-header">
           <h2 className="services-title">Our Services</h2>
@@ -165,10 +161,21 @@ const Services = () => {
                     ))}
                   </div>
                 )}
-
-                {/* <button className="service-cta">Book {service.title}</button> */}
               </div>
             ))}
+          </div>
+
+          {/* Overlapping Images Section */}
+          <div className="overlapping-images">
+            <div className="image-circle circle-1">
+              <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYWlyJTIwc2Fsb24lMjBzdHlsaXN0fGVufDF8fHx8MTc2Nzg4MTgyMXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Client Getting Haircut" />
+            </div>
+            <div className="image-circle circle-2">
+              <img src="https://images.unsplash.com/photo-1761931403671-d020a14928d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYWlyJTIwY3V0dGluZyUyMG1vZGVybnxlbnwxfHx8fDE3Njc4ODE4MjF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Salon Interior" />
+            </div>
+            <div className="image-circle circle-3">
+              <img  src="https://images.unsplash.com/photo-1702236240794-58dc4c6895e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMGhhaXIlMjBzYWxvbnxlbnwxfHx8fDE3Njc4ODE4MjJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Hair Styling" />
+            </div>
           </div>
         </div>
 
@@ -195,6 +202,16 @@ const Services = () => {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Call to Action */}
+
+        <div className="cta-section">
+          <button onClick={handleBookNow} className="cta-button">
+            Book an Appointment
+          </button>
+
+          <p className="cta-phone">Call us at (555) 123-4567</p>
         </div>
       </section>
     </React.Fragment>
