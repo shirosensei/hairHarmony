@@ -90,26 +90,6 @@ const Services = () => {
     },
   ];
 
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      review:
-        "Absolutely love this salon! The staff is incredibly talented and the atmosphere is so relaxing. My hair has never looked better!",
-      rating: 5,
-    },
-    {
-      name: "Michael Chen",
-      review:
-        "Best haircut I've ever had. The attention to detail is outstanding. Highly recommend!",
-      rating: 5,
-    },
-    {
-      name: "Emily Rodriguez",
-      review:
-        "I've been coming here for years and they never disappoint. Professional, friendly, and amazing results every time.",
-      rating: 5,
-    },
-  ];
 
   return (
     <React.Fragment>
@@ -176,31 +156,6 @@ const Services = () => {
             <div className="image-circle circle-3">
               <img  src="https://images.unsplash.com/photo-1702236240794-58dc4c6895e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMGhhaXIlMjBzYWxvbnxlbnwxfHx8fDE3Njc4ODE4MjJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Hair Styling" />
             </div>
-          </div>
-        </div>
-
-        {/* Testimonials Section */}
-        <div className="testimonials-section">
-          <div className="testimonials-header">
-            <h2 className="testimonials-title">What Our Clients Say</h2>
-          </div>
-
-          <div className="testimonials-grid">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={testimonial.id || index}
-                className="testimonial-card"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="testimonial-rating">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="testimonial-star" />
-                  ))}
-                </div>
-                <p className="testimonial-review">{testimonial.review}</p>
-                <p className="testimonial-name">- {testimonial.name}</p>
-              </div>
-            ))}
           </div>
         </div>
 
