@@ -8,38 +8,7 @@ import Logo from "../assets/images/client-doing-hair-cut-barber-shop-salon.jpg";
 const Services = () => {
   const navigate = useNavigate();
 
-  const [services, setServices] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  const handleBookNow = () => {
-    navigate("/booking");
-  };
-
-  // useEffect(() => {
-  //   const getServices = async () => {
-  //     try {
-  //       const response = await fetch("http://localhost:8100/api/services");
-
-  //       if (!response.ok) {
-  //         throw new Error(`HTTP error! status: ${response.status}`);
-  //       }
-
-  //       const data = await response.json();
-  //       setServices(data);
-  //       setLoading(false);
-  //     } catch (error) {
-  //       console.error(error);
-  //       setError(error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   }
-  //   getServices();
-
-  // }, []);
-
-  const services1 = [
+  const [services, setServices] = useState([
     {
       title: "Hair Services",
       icon: Scissors,
@@ -88,8 +57,36 @@ const Services = () => {
         { service: "Hair Extensions", price: "$300" },
       ],
     },
-  ];
+  ]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
+  const handleBookNow = () => {
+    navigate("/booking");
+  };
+
+  // useEffect(() => {
+  //   const getServices = async () => {
+  //     try {
+  //       const response = await fetch("http://localhost:8100/api/services");
+
+  //       if (!response.ok) {
+  //         throw new Error(`HTTP error! status: ${response.status}`);
+  //       }
+
+  //       const data = await response.json();
+  //       setServices(data);
+  //       setLoading(false);
+  //     } catch (error) {
+  //       console.error(error);
+  //       setError(error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   }
+  //   getServices();
+
+  // }, []);
 
   return (
     <React.Fragment>
@@ -98,14 +95,12 @@ const Services = () => {
         <div className="services-header">
           <h2 className="services-title">Our Services</h2>
           <p className="services-subtitle">
-            Professional beauty services tailored to your unique needs. Book
-            your appointment today for a personalized experience.
-          </p>
+            Professional beauty services tailored to your unique needs.          </p>
         </div>
 
         <div className="services-container">
           <div className="services-grid">
-            {services1.map((service, index) => (
+            {services.map((service, index) => (
               <div
                 key={service.id || index}
                 className="service-card"
@@ -132,9 +127,9 @@ const Services = () => {
                 </ul>
 
                 {/* Optional Features */}
-                {services1.features && (
+                {services.features && (
                   <div className="service-features">
-                    {services1.features.map((feature, i) => (
+                    {services.features.map((feature, i) => (
                       <span key={i} className="service-feature">
                         {feature}
                       </span>
@@ -146,7 +141,7 @@ const Services = () => {
           </div>
 
           {/* Overlapping Images Section */}
-          <div className="overlapping-images">
+          {/* <div className="overlapping-images">
             <div className="image-circle circle-1">
               <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYWlyJTIwc2Fsb24lMjBzdHlsaXN0fGVufDF8fHx8MTc2Nzg4MTgyMXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Client Getting Haircut" />
             </div>
@@ -156,7 +151,7 @@ const Services = () => {
             <div className="image-circle circle-3">
               <img  src="https://images.unsplash.com/photo-1702236240794-58dc4c6895e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMGhhaXIlMjBzYWxvbnxlbnwxfHx8fDE3Njc4ODE4MjJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Hair Styling" />
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Call to Action */}
