@@ -26,7 +26,7 @@
 
 .footer-text {
   color: oklch(70.8% 0 0);
-  font-size: var(--font--1);
+  font-size: var(--font-0);
   margin-bottom: calc(var(--space-m) / 4);
   line-height: 1.5;
 }
