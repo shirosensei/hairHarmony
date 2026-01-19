@@ -73,7 +73,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  to="/staff"
+                  to="/about"
                   className="link"
                   onClick={() => handleNavClose(false)}
                 >
