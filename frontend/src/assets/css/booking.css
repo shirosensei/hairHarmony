@@ -1,0 +1,145 @@
+
+/* Booking System Container */
+.booking-section {
+  padding-block: var(--grid-gutter);
+  background: var(--color-black) url(../images/sea-background.jpg) center
+    no-repeat;
+  background-size: cover;
+}
+
+
+.booking-system {
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  max-width: 42rem;
+  background-color: var(--color-black);
+}
+
+/* Header */
+.booking-header {
+  border-radius: 1.5rem 1.5rem 0 0;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.booking-title {
+  font-size: var(--font-2);
+  font-weight: 700;
+  color: var(--color-lighter-grey);
+  margin-bottom: var(--space-s);
+}
+
+.booking-subtitle {
+  font-size: var(--font-0);
+  color: var(--color-light-grey);
+  margin-bottom: var(--space-m);
+}
+
+/* Progress Steps */
+.progress-steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: var(--space-s) var(--space-m);
+}
+
+.step-container {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.step-circle {
+  width: var(--space-l);
+  height: var(--space-l);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  color: var(--color-black);
+  background-color: var(--color-lighter-grey);
+  transition: all 0.3s ease;
+}
+
+.step-circle.active {
+  background-color: var(--color-dark-gold);
+}
+
+.step-line {
+  flex: 1;
+  height: var(--space-3xs);
+  background-color: var(--color-light-yellow);
+  margin: 0 var(--space-s);
+}
+
+.step-line.active {
+  background-color: var(--color-dark-gold);
+}
+
+.step-indicator {
+  font-size: var(--font--1);
+  color: var(--color-light-grey);
+  margin-top: var(--space-s);
+  text-align: center;
+}
+
+
+/* Content Area */
+.booking-content {
+  padding: var(--space-m);
+  background-color: var(--color-lighter-black);
+  border-radius: 0 0 1.5rem 1.5rem;
+  min-height: 24rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.step-content {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.step-header {
+  display: flex;
+  align-self: center;
+  gap: var(--space-s);
+  margin-bottom: var(--space-3xs);
+}
+
+.step-icon {
+  color: var(--color-dark-gold);
+  width: var(--space-m);
+  height: var(--space-m);
+}
+
+.step-title {
+  font-size: var(--font-1);
+  font-weight: 700;
+  color: var(--color-light-grey);
+  vertical-align: middle;
+}
+
+/* Service Cards */
+.services-list,
+.stylists-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+.service-card,
+.stylist-card,
+.date-card,
+.time-card {
+  padding: 1rem;
+  border: 2px solid var(--color-dark-gold);
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
