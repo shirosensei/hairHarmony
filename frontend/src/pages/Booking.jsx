@@ -3,6 +3,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Calendar, Clock, Scissors, User, ChevronRight } from "lucide-react";
 import "../assets/css/booking.css";
+import stylistImage1 from "../assets/images/stylist-1.jpg";
+import stylistImage2 from "../assets/images/stylist_2.jpg";
+import stylistImage3 from "../assets/images/stylist_3.jpg";
+import stylistImage4 from "../assets/images/stylist_4.jpg";
 
 const services = [
   "Haircut",
@@ -62,6 +66,8 @@ const Booking = () => {
     { id: 4, name: "Treatment", duration: "1 hr", price: "$80" },
     { id: 5, name: "Highlights", duration: "2.5 hrs", price: "$150" },
     { id: 6, name: "Manicure", duration: "45 min", price: "$40" },
+    { id: 7, name: "Massage", duration: "1 hr", price: "$90" },
+    { id: 8, name: "Facial", duration: "1 hr", price: "$70" },
   ];
 
   const stylists = [
@@ -69,11 +75,26 @@ const Booking = () => {
       id: 1,
       name: "Sarah Johnson",
       specialty: "Color Specialist",
-      image: "👩‍🦰",
+      image: stylistImage1,
     },
-    { id: 2, name: "Mike Chen", specialty: "Cut & Style", image: "👨‍🦱" },
-    { id: 3, name: "Emma Davis", specialty: "All Services", image: "👱‍♀️" },
-    { id: 4, name: "Alex Rivera", specialty: "Trending Styles", image: "👨‍🦲" },
+    {
+      id: 2,
+      name: "Mike Chen",
+      specialty: "Cut & Style",
+      image: stylistImage2,
+    },
+    {
+      id: 3,
+      name: "Emma Davis",
+      specialty: "All Services",
+      image: stylistImage3,
+    },
+    {
+      id: 4,
+      name: "Alex Rivera",
+      specialty: "Trending Styles",
+      image: stylistImage4,
+    },
   ];
 
   const timeSlots = [
@@ -202,13 +223,13 @@ const Booking = () => {
                   <div
                     key={service.id}
                     onClick={() => setSelectedService(service)}
-                    className={`service-card ${selectedService?.id === service.id ? "selected" : ""}`}
+                    className={`servicelist-card ${selectedService?.id === service.id ? "selected" : ""}`}
                   >
                     <div className="service-info">
                       <h3 className="service-name">{service.name}</h3>
                       <p className="service-duration">{service.duration}</p>
                     </div>
-                    <div className="service-price">{service.price}</div>
+                    <div className="service-pricing">{service.price}</div>
                   </div>
                 ))}
               </div>
@@ -253,7 +274,7 @@ const Booking = () => {
             <div className="step-content">
               <div className="step-header">
                 <Calendar className="step-icon" />
-                <h2 className="step-header">Pick a Date</h2>
+                <h2 className="step-title">Pick a Date</h2>
               </div>
 
               <div className="dates-grid">
@@ -284,7 +305,7 @@ const Booking = () => {
                 <h2 className="step-title">Select a Time</h2>
               </div>
 
-              <div className="time-grid">
+              <div className="times-grid">
                 {timeSlots.map((time) => (
                   <div
                     key={time}
@@ -310,23 +331,23 @@ const Booking = () => {
                 <div className="summary-details">
                   {selectedService && (
                     <p className="summary-item">
-                      <strong>Service:</strong> {selectedService.name} (
+                      <strong className="summary-bold">Service:</strong> {selectedService.name} (
                       {selectedService.price})
                     </p>
                   )}
                   {selectedStylist && (
                     <p className="summary-item">
-                      <strong>Stylist:</strong> {selectedStylist.name}
+                      <strong className="summary-bold">Stylist:</strong> {selectedStylist.name}
                     </p>
                   )}
                   {selectedDate && (
                     <p className="summary-item">
-                      <strong>Date:</strong> {selectedDate}
+                      <strong className="summary-bold">Date:</strong> {selectedDate}
                     </p>
                   )}
                   {selectedTime && (
                     <p className="summary-item">
-                      <strong>Time:</strong> {selectedTime}
+                      <strong className="summary-bold">Time:</strong> {selectedTime}
                     </p>
                   )}
                 </div>
