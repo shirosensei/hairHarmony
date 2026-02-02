@@ -16,6 +16,7 @@
   grid-template-columns: 1fr;
   gap: var(--space-l);
   text-align: center;
+  place-items: center;
 }
 
 .footer-heading {
