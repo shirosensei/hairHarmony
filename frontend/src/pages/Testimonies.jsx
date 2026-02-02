@@ -1,6 +1,30 @@
 import React from 'react'
 
 const Testimonies = () => {
+
+
+
+    const testimonials = [
+      {
+        name: "Sarah Johnson",
+        review:
+          "Absolutely love this salon! The staff is incredibly talented and the atmosphere is so relaxing. My hair has never looked better!",
+        rating: 5,
+      },
+      {
+        name: "Michael Chen",
+        review:
+          "Best haircut I've ever had. The attention to detail is outstanding. Highly recommend!",
+        rating: 5,
+      },
+      {
+        name: "Emily Rodriguez",
+        review:
+          "I've been coming here for years and they never disappoint. Professional, friendly, and amazing results every time.",
+        rating: 5,
+      },
+    ];
+  
   return (
     <div>
                 <section className="testimonials">
@@ -37,6 +61,31 @@ const Testimonies = () => {
               <h3>Client Name</h3>
             </div>
           </div>
+
+           {/* Testimonials Section */}
+        <div className="testimonials-section">
+          <div className="testimonials-header">
+            <h2 className="testimonials-title">What Our Clients Say</h2>
+          </div>
+
+          <div className="testimonials-grid">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={testimonial.id || index}
+                className="testimonial-card"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="testimonial-rating">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="testimonial-star" />
+                  ))}
+                </div>
+                <p className="testimonial-review">{testimonial.review}</p>
+                <p className="testimonial-name">- {testimonial.name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
         </section>
     </div>
   )

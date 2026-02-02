@@ -5,7 +5,7 @@ import connectDB from './config/db';
 import appointmentRoutes from './routes/appointmentRoutes';
 import serviceRoutes from './routes/serviceRoutes';
 import stylistRoutes from './routes/stylistRoutes';
-
+import authRoutes from './routes/authRoutes';
 
 dotenv.config();
 
@@ -16,18 +16,14 @@ const app: Application = express();
 connectDB();
 
 // Middleware
-app.use(cors());
+app.use(cors({ origin: ['http://localhost:5173', 'http://127.0.0.1:5173'] }));
 app.use(express.json());
 
 // Routes
 app.use('/api/appointments', appointmentRoutes);
 app.use('/api/services', serviceRoutes);
 app.use('/api/stylists', stylistRoutes);
-
-// Default route
-app.get('/', (req: Request, res: Response) => {
-  res.json({ message: 'Hello from server!' });
-});
+app.use('/api/auth', authRoutes);
 
 // Server
 const PORT = process.env.PORT || 8009;

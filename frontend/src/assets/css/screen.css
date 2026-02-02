@@ -105,45 +105,5 @@
     width: clamp(40ch, 1000%, 60ch);
   }
 
-  .footer {
-    grid-template-areas:
-      "logo button socials"
-      "address contacts contacts"
-      "line line line"
-      "copyright copyright copyright";
-    /* grid-template-columns: repeat(auto-fit, minmax(6vw, 8fr)); */
-  }
-
-  .footer__container__logo {
-    grid-area: -7 / -13 / 18 / 4;
-    /* grid-column: 1; */
-    margin: 0 auto;
-  }
-
-  .container__button {
-    grid-area: 3 / 5 / 9 / -6;
-  }
-
-  .container__socials {
-    grid-area: 12/6/9/7;
-    width: max-content;
-  }
-
-  .container__address {
-    grid-area: 10/9/3/14;
-  }
-
-  .container__contacts {
-    width: fit-content;
-    grid-area: 2;
-  }
-
-  .container__line {
-    grid-area: 12 / -9 / 14/ 16;
-  }
-
-  .container_paragraph {
-    grid-area: 15/2/17/13;
-    margin: 0 auto;
-  }
+  
 }

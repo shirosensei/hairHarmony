@@ -379,6 +379,7 @@ const Booking = () => {
   };
 
   return (
+
     <>
       <section className="booking-section">
         <div className="booking-system">
@@ -402,6 +403,8 @@ const Booking = () => {
                     <div className={`step-line ${step > s ? "active" : ""}`} />
                   )}
                 </React.Fragment>
+
+  
               ))}
             </div>
 

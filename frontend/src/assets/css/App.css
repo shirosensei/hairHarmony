@@ -311,28 +311,6 @@
   background: rgba(0, 0, 0, 0.5); /* Dark overlay */
 }
 
-.about {
-  background-color: var(--color-black);
-  border-radius: 10px;
-  color: #fff;
-  font-weight: 300;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.about-text {
-  margin-bottom: 20px;
-}
-
-.about-text > button {
-  border: 2px solid #d4af37;
-  margin-top: 10px;
-}
-
-.about-text button:hover {
-  border: 1px solid #d4af37;
-  background-color: #d4af37; /* Accent */
-}
-
 .services-section {
   padding-block: var(--grid-gutter);
   background: var(--color-black) url(../images/sea-background.jpg) center
@@ -340,19 +318,18 @@
   background-size: cover;
 }
 
-.service-card {
+.home-service-card {
   display: flex;
   flex-direction: column;
   padding: var(--grid-gutter);
   height: 100%;
   background-color: var(--color-black);
-  /* background: linear-gradient(45deg, rgba(8,8,8,1) 35%, rgba(8,8,8,1) 100%); */
   color: var(--color-light-grey);
   border-radius: var(--space-2xs);
   transition: transform 0.3s ease;
 }
 
-.service-card:hover {
+.home-service-card:hover {
   transform: translateY(-4px);
 }
 
