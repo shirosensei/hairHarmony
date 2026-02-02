@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import Calendar from "react-calendar";
 import { useNavigate } from "react-router-dom";
 import {
@@ -20,47 +20,7 @@ import stylistImage2 from "../assets/images/stylist_2.jpg";
 import stylistImage3 from "../assets/images/stylist_3.jpg";
 import stylistImage4 from "../assets/images/stylist_4.jpg";
 
-const services = [
-  "Haircut",
-  "Hair Coloring",
-  "Deep Conditioning",
-  "Beard Trim",
-  "Beard Wash",
-  "Beard Color",
-  "Beard Brow Wash",
-  "Beard Brow Color",
-  "Beard Shaping",
-  "Beard Conditioning",
-  "Eyebrow Trim",
-  "Eyebrow Wash",
-  "Eyebrow Color",
-  "Eyebrow Shaping",
-  "Eyebrow Conditioning",
-  "Sideburns Trim",
-  "Sideburns Wash",
-  "Sideburns Color",
-  "Sideburns Shaping",
-  "Sideburns Conditioning",
-  "Full Body Trim",
-  "Full Body Wash",
-  "Full Body Color",
-  "Full Body Shaping",
-  "Full Body Conditioning",
-  "Hair Extensions",
-  "Hair Spa",
-  "Hair Pastels",
-  "Hair Dye",
-  "Hair Sculpting",
-  "Hair Trimming",
-];
 
-const stylists = [
-  "Denise Amaze",
-  "Jessica Mystique",
-  "Emily Stella",
-  "Laura Belle",
-  "Mia Grace",
-];
 
 const Booking = () => {
   const navigate = useNavigate();
@@ -83,59 +43,65 @@ const Booking = () => {
     notes: "",
   });
 
+  const [services, setService] = useState(null);
+  const [stylist, setStylist] = useState(null);
+  const [timeSlots, setTimeSlots] = useState(null);
+
   // Form validation errors
   const [formErrors, setFormErrors] = useState({});
 
-  const services = [
-    { id: 1, name: "Haircut", duration: "45 min", price: "$45" },
-    { id: 2, name: "Hair Coloring", duration: "2 hrs", price: "$120" },
-    { id: 3, name: "Styling", duration: "30 min", price: "$35" },
-    { id: 4, name: "Treatment", duration: "1 hr", price: "$80" },
-    { id: 5, name: "Highlights", duration: "2.5 hrs", price: "$150" },
-    { id: 6, name: "Manicure", duration: "45 min", price: "$40" },
-    { id: 7, name: "Massage", duration: "1 hr", price: "$90" },
-    { id: 8, name: "Facial", duration: "1 hr", price: "$70" },
-  ];
+  useEffect(() => {
+    setService([
+      { id: 1, name: "Haircut", duration: "45 min", price: "$45" },
+      { id: 2, name: "Hair Coloring", duration: "2 hrs", price: "$120" },
+      { id: 3, name: "Styling", duration: "30 min", price: "$35" },
+      { id: 4, name: "Treatment", duration: "1 hr", price: "$80" },
+      { id: 5, name: "Highlights", duration: "2.5 hrs", price: "$150" },
+      { id: 6, name: "Manicure", duration: "45 min", price: "$40" },
+      { id: 7, name: "Massage", duration: "1 hr", price: "$90" },
+      { id: 8, name: "Facial", duration: "1 hr", price: "$70" },
+    ]);
 
-  const stylists = [
-    {
-      id: 1,
-      name: "Sarah Johnson",
-      specialty: "Color Specialist",
-      image: stylistImage1,
-    },
-    {
-      id: 2,
-      name: "Mike Chen",
-      specialty: "Cut & Style",
-      image: stylistImage2,
-    },
-    {
-      id: 3,
-      name: "Emma Davis",
-      specialty: "All Services",
-      image: stylistImage3,
-    },
-    {
-      id: 4,
-      name: "Alex Rivera",
-      specialty: "Trending Styles",
-      image: stylistImage4,
-    },
-  ];
+    setStylist([
+      {
+        id: 1,
+        name: "Sarah Johnson",
+        specialty: "Color Specialist",
+        image: stylistImage1,
+      },
+      {
+        id: 2,
+        name: "Mike Chen",
+        specialty: "Cut & Style",
+        image: stylistImage2,
+      },
+      {
+        id: 3,
+        name: "Emma Davis",
+        specialty: "All Services",
+        image: stylistImage3,
+      },
+      {
+        id: 4,
+        name: "Alex Rivera",
+        specialty: "Trending Styles",
+        image: stylistImage4,
+      },
+    ]);
 
-  const timeSlots = [
-    "9:00 AM",
-    "10:00 AM",
-    "11:00 AM",
-    "12:00 PM",
-    "1:00 PM",
-    "2:00 PM",
-    "3:00 PM",
-    "4:00 PM",
-    "5:00 PM",
-    "6:00 PM",
-  ];
+    setTimeSlots([
+      "9:00 AM",
+      "10:00 AM",
+      "11:00 AM",
+      "12:00 PM",
+      "1:00 PM",
+      "2:00 PM",
+      "3:00 PM",
+      "4:00 PM",
+      "5:00 PM",
+      "6:00 PM",
+    ]);
+  }, []);
 
   // Generate dates for the next 14 days
   const generateDates = () => {
@@ -306,6 +272,9 @@ const Booking = () => {
     };
 
     try {
+
+      // load for about 5 seconds
+      // new Promise((resolve, reject) => )
       const result = await sendBookingData(bookingData);
 
       if (result.success) {
@@ -345,8 +314,6 @@ const Booking = () => {
 
   // Validate to proceed to next step
   const validateCurrentStep = () => {
-    console.log('steps', step);
-
     switch (step) {
       case 1:
         return selectedService !== null;
@@ -440,7 +407,7 @@ const Booking = () => {
 
             {/* Step Count */}
             <div className="step-indicator">
-              Step {step} of 4: {` ${getStepTitle()}`}
+              Step {step} of 5: {` ${getStepTitle()}`}
             </div>
           </div>
 
@@ -455,7 +422,7 @@ const Booking = () => {
                 </div>
 
                 <div className="services-list">
-                  {services.map((service) => (
+                  {services?.map((service) => (
                     <div
                       key={service.id}
                       onClick={() => setSelectedService(service)}
@@ -480,7 +447,7 @@ const Booking = () => {
                   <h2 className="step-title">Choose a Stylist</h2>
                 </div>
                 <div className="stylists-list">
-                  {stylists.map((stylist) => (
+                  {stylist?.map((stylist) => (
                     <div
                       key={stylist.id}
                       onClick={() => setSelectedStylist(stylist)}
