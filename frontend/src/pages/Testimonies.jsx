@@ -1,4 +1,7 @@
 import React from 'react'
+import { Scissors, Award, Heart } from "lucide-react";
+import { Star } from "lucide-react";
+
 
 const Testimonies = () => {
 
