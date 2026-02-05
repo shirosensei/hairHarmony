@@ -1,7 +1,275 @@
-.container-about {
-  margin: 0 auto;
-  padding: 0;
-  box-sizing: border-box;
+.about-container {
+  background-color: var(--color-black);
+}
+
+.container {
+  min-height: 100vh;
+  background-color: var(--color-black);
+}
+
+.hidden {
+  display: none;
+}
+
+.hero-section {
+  position: relative;
+  height: 400px;
+}
+
+.hero-section img {
   width: 100%;
-  height: 90vh;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  text-align: center;
+  color: var(--color-light-grey);
+  padding: 0 var(--space-3xs-2xs);
+}
+
+.hero-title {
+  font-size: var(--font-4);
+  margin-bottom: var(--space-xs);
+  color: var(--color-light-grey);
+}
+
+/* About section */
+.about-section {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: var(--space-xs) var(--space-s);
+}
+
+.about-container {
+  display: grid;
+  gap: var(--space-3xs-2xs);
+  align-items: center;
+  margin-bottom: var(--space-xs);
+}
+
+.about-content {
+  margin-bottom: var(--space-s);
+}
+
+.about-title {
+  font-size: var(--font-4);
+  margin-bottom: var(--space-s);
+  color: var(--color-dark-gold);
+  text-align: center;
+}
+
+.about-text {
+  color: var(--color-light-grey);
+  margin-bottom: var(--space-xs);
+  line-height: 1.6;
+}
+
+/* Features Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-s);
+}
+
+.feature-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-s);
+  background-color: var(--color-light-grey);
+  padding: var(--space-xs);
+  border-radius: var(--space-3xs);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  background-color: #171717;
+  color: var(--color-dark-gold);
+  padding: var(--space-3xs);
+  border-radius: var(--space-3xs-2xs);
+  flex-shrink: 0;
+}
+
+.feature-svg {
+  width: var(--space-m);
+  height: var(--space-m);
+}
+
+.feature-content {
+  flex: 1;
+}
+
+.feature-title {
+  font-size: var(--font-0);
+  margin-bottom: var(--space-3xs);
+  color: var(--color-dark-gold);
+}
+
+.feature-description {
+  font-size: var(--font--1);
+  color: #666;
+}
+
+/* Team Section */
+.team-section {
+padding: var(--space-l) var(--space-s);
+}
+
+.team-container {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.team-header {
+  text-align: center;
+  margin-bottom: var(--space-l);
+}
+
+.team-title {
+  margin-bottom: var(--space-s);
+  color: var(--color-dark-gold);
+}
+
+.team-subtitle {
+  color: var(--color-light-grey);
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.team-grid  {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-l);
+}
+
+
+/* Reviews Section */
+.reviews-section {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: var(--space-l) var(--space-m);
+}
+
+.reviews-header {
+  text-align: center;
+  margin-bottom: var(--space-m);
+}
+
+.reviews-title {
+  margin-bottom: var(--space-m);
+  color: var(--color-dark-gold);
+}
+
+.reviews-subtitle {
+  color: var(--color-light-grey);
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-m);
+}
+
+/* CTA Section */
+.cta-section {
+  background-color: #171717;
+  color: #fff;
+  padding: var(--space-l) var(--space-m);
+}
+
+.cta-container {
+  max-width: 56rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cta-title {
+  color: var(--color-dark-gold);
+  margin-bottom: var(--space-s);
+}
+
+.cta-subtitle {
+  color: var(--color-light-grey);
+  margin-bottom: var(--space-xs);
+}
+
+/* Responsive Design */
+@media (min-width: 640px) {
+  .hero {
+    height: 500px;
+  }
+
+  .hero-title {
+    font-size: var(--font-3);
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .about-container {    
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+
+  .about-title {
+    font-size: var(--font-3);
+  }
+
+  .team-title {
+    font-size: var(--font-3);
+  }
+
+    
+  .reviews-title {
+    font-size: var(--font-3);
+  }
+  
+  .cta-title {
+    font-size: var(--font-3);
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .team-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .reviews-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .about-section {
+    padding: var(--space-l) var(--space-s);
+  }
+
+  .team-section {
+    padding: var(--space-l) var(--space-s);
+  }
+
+  .reviews-section {
+    padding: var(--space-l) var(--space-s);
+  }
+  
+  .cta-section {
+    padding: var(--space-l) var(--space-s);
+  }
 }

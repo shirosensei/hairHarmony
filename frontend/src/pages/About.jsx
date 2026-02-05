@@ -76,7 +76,7 @@ const About = () => {
   return (
     <div className="container">
       {/* Hero Section */}
-      <div className="hero-section">
+      <div className="hero-section hidden">
         <img src="https://images.unsplash.com/photo-1681965823525-b684fb97e9fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBzYWxvbiUyMGludGVyaW9yfGVufDF8fHx8MTc2ODY0Njg3M3ww&ixlib=rb-4.1.0&q=80&w=1080"
           alt="Salon interior" className="hero-image" />
 
@@ -106,7 +106,7 @@ const About = () => {
           <div className="features-grid">
             <div className="feature-card">
               <div className="feature-icon">
-                <Scissors size={48} color="#ff6f61" className="feature-svg" />
+                <Scissors className="feature-svg" />
               </div>
 
               <div className="feature-content">
@@ -118,7 +118,7 @@ const About = () => {
             </div>
             <div className="feature-card">
               <div className="feature-icon">
-                <Award size={48} color="#ff6f61" className="feature-svg" />
+                <Award className="feature-svg" />
               </div>
 
               <div className="feature-content">
@@ -130,7 +130,7 @@ const About = () => {
             </div>
             <div className="feature-card">
               <div className="feature-icon">
-                <Heart size={48} color="#ff6f61" className="feature-svg" />
+                <Heart className="feature-svg" />
               </div>
 
               <div className="feature-content">
